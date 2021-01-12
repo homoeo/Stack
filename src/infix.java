@@ -17,7 +17,7 @@ Mapdas yes = new Mapdas(true);
                    opin.push(ment);
 
                 }
-if(ment == ')'){
+else if(ment == ')'){
     poo = opin.pop();
     printString(poo);
 }
@@ -34,8 +34,8 @@ if(ment == ')'){
 
              opin.push(ment);
            }
-          else
-{
+          else if((yes.priorityno(opin.arr[opin.top])< (yes.priorityno(ment)))){
+
     opin.push(ment);
 
 }
