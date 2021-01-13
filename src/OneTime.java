@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class postfixev {
+public class OneTime {
 
 
     Mapdas no = new Mapdas(true);
@@ -14,61 +14,41 @@ public class postfixev {
             if (Character.isDigit(hy)) {
                 operhand.push(hy);
 
-            } else if ((no.containsKey(hy)) && (operator.isEmpty())) {
+            } else if (no.containsKey(hy)) {
+                if (operator.isEmpty()) {
+                    operator.push(hy);
 
-                 operator.push(hy);
-
-
+                }
             }
 
+            else if((no.containsKey(hy))
+                    && (!operator.isEmpty()) &&
+                    (no.priorityno(hy) >
+                            (no.priorityno(operator.arr[operator.top]))
+                    ) || (hy == '('))
+            {
+                operator.push(hy);
+            }
             else if(hy == ')'){
                 int a = 0;
                 while (a < operator.size()){
 
-                    if(operator.arr[operator.top] == '(')
-                    {
+                    if(operator.arr[operator.top] == '('){
 
                         break;
-
                     }
                     else {
-
-
-                        Integer result =   result(Character.getNumericValue(operhand.pop()),
+                        String result =  String.valueOf(result(Character.getNumericValue(operhand.pop()),
                                 Character.getNumericValue(operhand.pop())
-                                ,operator.pop());
+                                ,operator.pop()));
 
 
-Character someChar = (char)Integer.parseInt(String.valueOf(result));
-
-                        operhand.push(someChar);
+                        operator.push(result.charAt(0));
                     }
                     a++;
-                }}
+                }}}
 
-
-
-
-
-
-
-            else if(((no.containsKey(hy))
-                   && (!operator.isEmpty()) &&
-                  (no.priorityno(hy) >
-                 (no.priorityno(operator.arr[operator.top])))
-                   ) || (hy == '('))
-            {
-                operator.push(hy);
-            }
-
-        else {
-                operator.push(hy);
-
-        }
-
-        }
-
-        System.out.println("result is"+operhand.pop());
+System.out.println("result is"+operhand.pop());
 
     }
 
@@ -89,10 +69,10 @@ Character someChar = (char)Integer.parseInt(String.valueOf(result));
 
     }
 
-    public static void main(String [] args)
+    public void main(String [] args)
 
     {
-        postfixev yes = new postfixev();
+        OneTime yes = new OneTime();
 
 
         Scanner ds = new Scanner(System.in);

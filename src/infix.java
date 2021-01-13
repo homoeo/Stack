@@ -28,15 +28,15 @@ else if(ment == ')'){
                  opin.push(ment);
 
              }
-          else if((yes.priorityno(opin.arr[opin.top])> (yes.priorityno(ment)))){
-              poo = opin.pop();
-               printString(poo);
+ else if((yes.priorityno(opin.arr[opin.top])> (yes.priorityno(ment)))){
+           poo = opin.pop();
+          printString(poo);
 
-             opin.push(ment);
-           }
-          else if((yes.priorityno(opin.arr[opin.top])< (yes.priorityno(ment)))){
+         opin.push(ment);
+      }
+  else if((yes.priorityno(opin.arr[opin.top])< (yes.priorityno(ment)))){
 
-    opin.push(ment);
+  opin.push(ment);
 
 }
 

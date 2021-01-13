@@ -32,6 +32,7 @@ class tack
 
 
         arr[++top] = x;
+        System.out.println("The element added to stack is"+x);
     }
 
     // Utility function to pop top element from the stack
